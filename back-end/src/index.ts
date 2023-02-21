@@ -18,4 +18,6 @@ sequelize.sync({ force: true }).then(() => {
   app.listen(config.port, () => {
     console.log(`The server is running on the port ${config.port} `)
   })
+}).catch((error) => {
+  console.error('Error starting server: ', error)
 })
