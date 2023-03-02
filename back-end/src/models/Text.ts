@@ -8,9 +8,14 @@ const Text = sequelize.define('texts', {
     allowNull: false
   },
   description: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: false
+  },
+  date: {
+    type: DataTypes.DATEONLY
   }
+}, {
+  timestamps: false
 })
 
 export default Text
