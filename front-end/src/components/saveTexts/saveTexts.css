@@ -1,0 +1,32 @@
+.saveTexts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.save-texts {
+    border: 1px black solid;
+    background-color: white;
+    border-radius: .3rem;
+    padding: .7rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.text-card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    word-break:normal;
+    border-bottom: 1px rgb(0, 0, 0, 0.6) solid;
+    max-width: 950px;
+    padding: .5rem;
+    padding-top: 0;
+}
+
+.text-card span {
+    font-size: smaller;
+    display: flex;
+    margin-left: auto;
+}
