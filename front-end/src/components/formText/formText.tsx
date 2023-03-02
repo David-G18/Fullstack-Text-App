@@ -17,7 +17,7 @@ export default function FormText (): ReactElement {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
-    if ((input?.length) != null) {
+    if (input?.length !== 0) {
       axios.post('http://localhost:3001/texts', {
         description: input,
         date: new Date()
