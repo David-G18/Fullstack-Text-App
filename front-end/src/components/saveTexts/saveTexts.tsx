@@ -1,8 +1,8 @@
-import React, { useEffect, type ReactElement } from 'react'
+import React, { type ReactElement, useEffect } from 'react'
 // Hooks Redux Toolkit
 import { useAppSelector, useAppDispatch } from '../../redux/hooks/hooks'
 // Actions
-import { getAllTexts } from '../../redux/actions/textsAction'
+import { getAllTexts, deleteText } from '../../redux/actions/textsAction'
 // Style CSS
 import './saveTexts.css'
 
@@ -14,6 +14,12 @@ export default function SaveTexts (): ReactElement {
     getAllTexts(dispatch)
   }, [])
 
+  const handleClick = (id: string): void => {
+    deleteText(id)
+      .then(() => { getAllTexts(dispatch) })
+      .catch(error => { console.log(error) })
+  }
+
   return (
     <div className='saveTexts-container'>
       <h2>Textos Guardados</h2>
@@ -23,7 +29,10 @@ export default function SaveTexts (): ReactElement {
           ? texts.map((text, i) => {
             return (
             <div key={i} className='text-card'>
-              <span>{text.date.toString()}</span>
+              <div className='aditional-content'>
+                <button onClick={() => { handleClick(text.id) }}>X</button>
+                <span>{text.date.toString()}</span>
+              </div>
               <p>{text.description}</p>
             </div>
             )

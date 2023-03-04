@@ -1,14 +1,13 @@
 import React, { useState, type ReactElement } from 'react'
-import axios from 'axios'
 // Hooks Redux Toolkit
 import { useAppDispatch } from '../../redux/hooks/hooks'
 // Actions
-import { getAllTexts } from '../../redux/actions/textsAction'
+import { getAllTexts, newText } from '../../redux/actions/textsAction'
 // Styles CSS
 import './formText.css'
 
 export default function FormText (): ReactElement {
-  const [input, setInput] = useState<string>()
+  const [input, setInput] = useState<string>('')
   const dispatch = useAppDispatch()
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
@@ -18,10 +17,7 @@ export default function FormText (): ReactElement {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
     if (input?.length !== 0) {
-      axios.post('http://localhost:3001/texts', {
-        description: input,
-        date: new Date()
-      })
+      newText(input)
         .then(() => {
           setInput('')
           getAllTexts(dispatch)

@@ -25,7 +25,29 @@
     padding-top: 0;
 }
 
-.text-card span {
+.aditional-content {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.aditional-content button {
+    border: black 1px solid;
+    margin: 0;
+    padding: 0;
+    height: 0.9rem;
+    width: 0.9rem;
+    border-radius: 50%;
+    font-size: x-small;
+    transition: 0.3s;
+}
+
+.aditional-content button:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+
+.aditional-content span {
     font-size: smaller;
     display: flex;
     margin-left: auto;
