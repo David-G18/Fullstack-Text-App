@@ -26,6 +26,17 @@ class TextsModel {
       next(error)
     })
   }
+
+  deleteText = (req: express.Request, res: express.Response, next: express.NextFunction): void => {
+    const id = req.params.id
+    Text.destroy({
+      where: { id }
+    })
+      .then(() => res.status(202).send('Texto eliminado correctamente'))
+      .catch((error) => {
+        next(error)
+      })
+  }
 }
 
 const textsController = new TextsModel()
